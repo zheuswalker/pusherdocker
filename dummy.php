@@ -2,7 +2,7 @@
 
     $channel = 'mya';
     $event   = 'mya';
-    $message = 'Hellaaso World!';
+    $message = 'docker_image';
     $options = [
         'cluster' => 'eu',
         // options below are needed for pusher local dev server
@@ -23,7 +23,7 @@ $int =0;
 while(true){
 
 $client = new \GuzzleHttp\Client();
-$response = $client->request('GET', 'http://192.168.100.10:8000/getPatientObservation');
+$response = $client->request('GET', 'http://206.189.87.169/getPatientObservation');
 echo $response->getBody();
 
         echo 'Sending event: ' . $event . ' with message: ' . $message . ' to channel: ' . $channel . PHP_EOL;
