@@ -1,5 +1,7 @@
-<?php require __DIR__ . '/vendor/autoload.php';
+<?php
+ require __DIR__ . '/vendor/autoload.php';
 
+    include 'environment.php';
     $channel = 'mya';
     $event   = 'mya';
     $message = 'docker_image';
@@ -23,8 +25,8 @@ $int =0;
 while(true){
 
 $client = new \GuzzleHttp\Client();
-$response = $client->request('GET', 'http://206.189.87.169/getPatientObservation');
-echo $response->getBody();
+$response = $client->request('GET', $api_uri);
+echo $response->getBody()."asda";
 
         echo 'Sending event: ' . $event . ' with message: ' . $message . ' to channel: ' . $channel . PHP_EOL;
         $pusher->trigger($channel, $event, $data = $response->getBody()."");
